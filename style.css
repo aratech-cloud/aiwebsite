@@ -1,0 +1,101 @@
+:root{
+  --bg:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --primary:#0d6efd; /* default bootstrap primary used */
+  --card:#ffffff;
+  --glass: rgba(255,255,255,0.6);
+}
+
+/* dark theme variables */
+body.dark {
+  --bg:#0b1220;
+  --text:#e6eef8;
+  --muted:#9aa8bf;
+  --card:#0f1720;
+  --glass: rgba(10,14,20,0.5);
+}
+
+/* Global */
+html,body{
+  height:100%;
+  background:var(--bg);
+  color:var(--text);
+  transition: background-color .3s ease, color .3s ease;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* navbar */
+#mainNav{
+  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+}
+body.dark #mainNav{
+  background: linear-gradient(180deg, rgba(10,14,20,0.6), rgba(10,14,20,0.8));
+}
+
+/* hero */
+header{
+  padding-top:4rem;
+  padding-bottom:4rem;
+}
+
+/* section spacing */
+section { padding-top:3rem; padding-bottom:3rem; }
+
+/* cards & images adapt to theme */
+.card {
+  background: var(--card);
+  transition: background .25s ease, transform .15s ease;
+}
+.card:hover { transform: translateY(-6px); }
+
+/* contact form */
+#contactForm .form-control {
+  background: transparent;
+  border-radius: .5rem;
+  border:1px solid rgba(0,0,0,0.08);
+}
+body.dark #contactForm .form-control{
+  border:1px solid rgba(255,255,255,0.06);
+}
+
+/* back-to-top */
+#backToTop{
+  position:fixed;
+  right:1.5rem;
+  bottom:1.5rem;
+  display:none;
+  z-index:999;
+}
+
+/* responsive tweaks */
+@media (max-width: 767px) {
+  header .display-5 { font-size:1.75rem; }
+}
+
+/* small utilities */
+.text-primary { color: var(--primary) !important; }
+
+/* focus */
+a:focus, button:focus, input:focus, textarea:focus{
+  outline: 3px solid rgba(13,110,253,0.12);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+/* small animation for hero text */
+.hero-fade {
+  animation: floaty 6s ease-in-out infinite;
+}
+@keyframes floaty {
+  0%{ transform: translateY(0); }
+  50%{ transform: translateY(-6px); }
+  100%{ transform: translateY(0); }
+}
+
+/* simple accessible hidden for screen readers */
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+
